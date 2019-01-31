@@ -1,10 +1,8 @@
 // INPUT IS A STRING, RETURNS A NUMBER
 
 function lowestProduct(input) {
-
   let products = [];
   let nums = input.split('').map(Number);
-
   if (input.length < 4) {
     return 'Number is too small'
   } else {
@@ -13,9 +11,7 @@ function lowestProduct(input) {
       products.push(product);
     }
   }
-
   return Math.min(...products);
-
 }
 
 module.exports = lowestProduct;
