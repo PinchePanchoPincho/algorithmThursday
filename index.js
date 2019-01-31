@@ -10,5 +10,5 @@ function lowestProduct(input) {
   }
   return Math.min(...res);
 }
-lowestProduct('9123456789');
+
 module.exports = lowestProduct;
