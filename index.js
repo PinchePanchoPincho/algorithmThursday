@@ -3,12 +3,14 @@
 function lowestProduct(input) {
   let arr = input.split('')
   if (arr.length < 4) return 'Number is too small';
+
+  let res = Infinity;
   arr = arr.map(str => Number(str));
-  const res = [];
-  for (let i = 0; i <= arr.length -4; i++) {
-    res.push(arr[i] * arr[i + 1] * arr[i + 2] * arr[i + 3]);
+  for (let i = 0; i + 3 < arr.length; i++) {
+    const cur = arr[i] * arr[i + 1] * arr[i + 2] * arr[i + 3];
+    res = res < cur ? res : cur;
   }
-  return Math.min(...res);
+  return res;
 }
 
 module.exports = lowestProduct;
