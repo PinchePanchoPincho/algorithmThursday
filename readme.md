@@ -1,4 +1,4 @@
-Create a function that returns the lowest product of 4 consecutive digits in a number given as a string.
+Create a function that returns the lowest multplication product of 4 consecutive digits in a string of digits.
 
 The input is given as a string, the return is a number.
 
