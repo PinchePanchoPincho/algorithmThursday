@@ -1,16 +1,26 @@
-// INPUT IS A STRING, RETURNS A NUMBER
-
-function lowestProduct(input) {
-  let arr = input.split('')
-  if (arr.length < 4) return 'Number is too small';
-
-  let res = Infinity;
-  arr = arr.map(str => Number(str));
-  for (let i = 0; i + 3 < arr.length; i++) {
-    const cur = arr[i] * arr[i + 1] * arr[i + 2] * arr[i + 3];
-    res = res < cur ? res : cur;
+function collatz (n) {
+  const chain = [];
+  while (n !== 1) {
+    chain.push(n);
+    n = (n % 2 === 0) ? (n / 2) : (3 * n + 1);
   }
-  return res;
+  chain.push(n);
+  return chain;
 }
 
-module.exports = lowestProduct;
+function longestBetween (i) {
+  let longest = null;
+  let longestLength = 0;
+  for (let n = 1; n < i; n++) {
+    const currentLength = collatz(n).length;
+    if (longestLength < currentLength) {
+      longest = n;
+      longestLength = currentLength;
+    }
+  }
+  return longest;
+}
+
+console.log(longestBetween(1, 10 ** 8));
+
+module.exports = { collatz, longestBetween };
